@@ -15,6 +15,36 @@ import (
         "google.golang.org/api/option"
 )
 
+func sendemail(email string,) bool {
+                // Sender data.
+                from := "missiona.carla@gmail.com"
+                password := "3250passw88rd3250"
+
+                // Receiver email address.
+                to := []string{
+                 email,
+                }
+
+                // smtp server configuration.
+                smtpHost := "smtp.gmail.com"
+                smtpPort := "587"
+
+                // Message.
+                message := []byte("This is a test email message.")
+
+                // Authentication.
+                auth := smtp.PlainAuth("", from, password, smtpHost)
+
+                // Sending email.
+                err := smtp.SendMail(smtpHost+":"+smtpPort, auth, from, to, message)
+                if err != nil {
+                fmt.Println(err)
+                return false
+                }
+                fmt.Println("Email Sent Successfully!")
+             return true
+
+
 // Retrieve a token, saves the token, then returns the generated client.
 func getClient(config *oauth2.Config) *http.Client {
         // The file token.json stores the user's access and refresh tokens, and is
