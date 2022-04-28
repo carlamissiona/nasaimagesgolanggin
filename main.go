@@ -39,14 +39,14 @@ func main() {
 	r := gin.Default()
 	Router.LoadHTMLGlob("templates/*")
 
-	r.GET("/updatesemail", func(c *gin.Context) {
+	Router.GET("/updatesemail", func(c *gin.Context) {
 		sendemail("codetuna@protonmail.com")
 		c.JSON(200, gin.H{
 			"message": "Hello world!",
 		})
 	})
 	
-	r.GET("/", showHome)
+	Router.GET("/", showHome)
 	r.Run()
 
  
