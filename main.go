@@ -26,7 +26,7 @@ func main() {
 	r.GET("/app", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "index.html", gin.H{
 			"title": "Main website",
-			"payload": "hi"
+			"payload": "hi",
 		})
 	})
 	 
