@@ -20,7 +20,7 @@ func main() {
 
 // 	r.Static("/assets", "./templates/assets")        
   
-	r.LoadHTMLFiles("./templates/*")
+	r.LoadHTMLFiles("./templates/*.html")
 
 	r.GET("/updatesemail", func(c *gin.Context) {
 		sendemail("codetuna@protonmail.com")
