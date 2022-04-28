@@ -10,7 +10,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-var Router * gin.Enginer
+var Router * gin.Engine
 
 func main() {
  	
