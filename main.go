@@ -15,9 +15,7 @@ func main() {
       
         r.StaticFS("/assets", http.Dir("assets")) 
 
- 	r.Static("/assets", "./assets")        
-  
-	r.LoadHTMLFiles("templates/*.html")
+ 	//r.Static("/assets", "./assets")     
 
 	r.GET("/updatesemail", func(c *gin.Context) {
 		sendemail("codetuna@protonmail.com")
