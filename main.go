@@ -39,11 +39,6 @@ func main() {
 	r := gin.Default()
 	r.LoadHTMLGlob("templates/*")
 
-	r.GET("/", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"message": "Hello world!",
-		})
-	})
 	r.GET("/updatesemail", func(c *gin.Context) {
 		sendemail("codetuna@protonmail.com")
 		c.JSON(200, gin.H{
