@@ -19,6 +19,8 @@ func main() {
         r.StaticFS("/assets", http.Dir("templates/assets")) 
 	
 	r.LoadHTMLGlob("templates/**/*")
+        
+	r.LoadHTMLGlob("templates/**/**/*")
  
 	r.LoadHTMLGlob("templates/*")
 	r.Static("/assets", "./templates/assets")
