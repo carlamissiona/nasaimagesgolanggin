@@ -16,11 +16,11 @@ func main() {
  	
 	r := gin.Default()
       
-         r.StaticFS("/assets", http.Dir("templates/assets")) 
+        r.StaticFS("/assets", http.Dir("templates/assets")) 
 
 // 	r.Static("/assets", "./templates/assets")        
   
-	r.LoadHTMLFiles("templates/*")
+	r.LoadHTMLFiles("./templates/*")
 
 	r.GET("/updatesemail", func(c *gin.Context) {
 		sendemail("codetuna@protonmail.com")
