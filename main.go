@@ -3,9 +3,9 @@ package main
 import ( 
 	
 	
-	_"io/ioutil"
+	 
 	"net/http"
-	_"strings"
+	 
 
 	"github.com/gin-gonic/gin"
 )
@@ -18,7 +18,10 @@ func main() {
       
         r.StaticFS("/assets", http.Dir("templates/assets")) 
 	
-	
+	r.LoadHTMLGlob("templates/**/*")
+ 
+	r.LoadHTMLGlob("templates/*")
+	r.Static("/assets", "./templates/assets")
 	r.GET("/updatesemail", func(c *gin.Context) {
 		sendemail("codetuna@protonmail.com")
 		c.JSON(200, gin.H{
