@@ -15,7 +15,9 @@ func main() {
 
 	r := gin.Default()
 	r.LoadHTMLGlob("templates/*")
-
+        r.Static("/assets", "./templates/assets")
+	r.Static("/assets/css", "./templates/assets/css")
+	r.Static("/images", "./templates/images")
 	r.GET("/updatesemail", func(c *gin.Context) {
 		sendemail("codetuna@protonmail.com")
 		c.JSON(200, gin.H{
