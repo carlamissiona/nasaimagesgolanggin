@@ -1,12 +1,9 @@
 package main
 
 import ( 
-	
-	
-	 
+			 
 	"net/http"
 	 
-
 	"github.com/gin-gonic/gin"
 )
 
@@ -16,11 +13,11 @@ func main() {
  	
 	r := gin.Default()
       
-        r.StaticFS("/assets", http.Dir("templates/assets")) 
+        r.StaticFS("/assets", http.Dir("assets")) 
 
-// 	r.Static("/assets", "./templates/assets")        
+ 	r.Static("/assets", "./assets")        
   
-	r.LoadHTMLFiles("./templates/*.html")
+	r.LoadHTMLFiles("templates/*.html")
 
 	r.GET("/updatesemail", func(c *gin.Context) {
 		sendemail("codetuna@protonmail.com")
@@ -30,7 +27,7 @@ func main() {
 	})
 	
 	r.GET("/app", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "index.html", gin.H{
+		c.HTML(http.StatusOK, "templates/index.html", gin.H{
 			"title": "Main website",
 			"payload": "hi",
 		})
