@@ -2,11 +2,10 @@ package main
 
 import ( 
 	
-	_ "encoding/json"
-	_ "html/template"
-	_ "io/ioutil"
-	_ "net/http"
-	_ "strings"
+	
+	_"io/ioutil"
+	"net/http"
+	_"strings"
 
 	"github.com/gin-gonic/gin"
 )
