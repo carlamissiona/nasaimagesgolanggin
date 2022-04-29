@@ -8,7 +8,7 @@ import (
 
 
 	"fmt"
-  	"log"
+  	_"log"
     "github.com/PuerkitoBio/goquery"
 )
 
