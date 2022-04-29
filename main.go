@@ -13,9 +13,10 @@ func main() {
  	
 	r := gin.Default()
       
-        //r.StaticFS("/assets", http.Dir("assets")) 
+    r.StaticFS("/searches", http.Dir("searches")) 
 
  	r.Static("/assets", "./assets")   
+ 	r.Static("/images", "./images")   
 	
 
 	r.LoadHTMLGlob("templates/*.html")
@@ -32,7 +33,15 @@ func main() {
 			"payload": "hi",
 		})
 	})
-	 
+		
+	r.GET("/search", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "search.html", gin.H{
+			"title": "Search",
+			"payload": "hi",
+		})
+	})
+	  
+
 	r.Run()
 
  
