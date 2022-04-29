@@ -3,7 +3,8 @@
 <!--Embed the header.html template at this location-->
 {{ template "header.html" .}}
 
- 
+  <!--Loop over the `payload` variable, which is the list of articles-->
+  {{ .payload }}
 
     <!-- Wrapper -->
       <div id="wrapper">

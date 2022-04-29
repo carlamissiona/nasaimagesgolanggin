@@ -5,6 +5,11 @@ import (
 	"net/http"
 	 
 	"github.com/gin-gonic/gin"
+
+
+	"fmt"
+  	"log"
+    "github.com/PuerkitoBio/goquery"
 )
 
 var Router * gin.Engine
@@ -28,13 +33,39 @@ func main() {
 	})
 	
 	r.GET("/app", func(c *gin.Context) {
+	 
 		c.HTML(http.StatusOK, "index.html", gin.H{
 			"title": "Main website",
 			"payload": "hi",
 		})
 	})
 		
+	r.GET("/api/available", func(c *gin.Context) {
+		
+		resp, err := http.Get("https://epic.gsfc.nasa.gov/api/natural/available")
+		if err != nil {
+			// handle err
+	    }
+		defer resp.Body.Close()
+
+
+		fmt.Println("resp" , resp)
+		fmt.Println(resp)
+
+		daily := resp 
+
+		c.JSON(
+		http.StatusOK,
+		daily,
+	)
+		 
+	})			
 	r.GET("/search", func(c *gin.Context) {
+
+ 
+
+		 
+
 		c.HTML(http.StatusOK, "search.html", gin.H{
 			"title": "Search",
 			"payload": "hi",
