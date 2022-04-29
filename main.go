@@ -9,7 +9,7 @@ import (
 
 	"fmt"
   	 
-    "github.com/PuerkitoBio/goquery"
+    _"github.com/PuerkitoBio/goquery"
 )
 
 var Router * gin.Engine
