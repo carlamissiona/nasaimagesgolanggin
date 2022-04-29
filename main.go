@@ -13,10 +13,12 @@ func main() {
  	
 	r := gin.Default()
       
-        r.StaticFS("/assets", http.Dir("assets")) 
+        //r.StaticFS("/assets", http.Dir("assets")) 
 
- 	//r.Static("/assets", "./assets")     
+ 	r.Static("/assets", "./assets")   
+	
 
+	r.LoadHTMLGlob("templates/*.html")
 	r.GET("/updatesemail", func(c *gin.Context) {
 		sendemail("codetuna@protonmail.com")
 		c.JSON(200, gin.H{
@@ -25,7 +27,7 @@ func main() {
 	})
 	
 	r.GET("/app", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "templates/index.html", gin.H{
+		c.HTML(http.StatusOK, "index.html", gin.H{
 			"title": "Main website",
 			"payload": "hi",
 		})
