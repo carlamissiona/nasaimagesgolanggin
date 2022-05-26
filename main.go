@@ -48,8 +48,31 @@ func main() {
 	 
 		c.HTML(http.StatusOK, "index.html", gin.H{
 			"title": "Main website",
-			"payload": "hi",
-			"Imgs" : items,
+			"payload": "hi", 
+		})
+	})
+		r.GET("/gallery", func(c *gin.Context) {
+
+	 
+			// var items []int = 
+
+	 
+	 
+		c.HTML(http.StatusOK, "index.html", gin.H{
+			"title": "Main website",
+			"payload": "g", 
+		})
+	})
+		r.GET("/register", func(c *gin.Context) {
+
+	 
+			// var items []int = 
+
+	 
+	 
+		c.HTML(http.StatusOK, "index.html", gin.H{
+			"title": "Main website",
+			"payload": "hi", 
 		})
 	})
 		
@@ -83,7 +106,9 @@ func main() {
 
 	 
 		 
-	})			
+	})	
+
+
 	r.GET("/search", func(c *gin.Context) {
 
  
