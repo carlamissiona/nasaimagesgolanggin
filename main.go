@@ -99,7 +99,7 @@ func main() {
         msg.Message = "hey"
         msg.Number = 123
 
-		daily := msg 
+		// daily := msg 
 
 	 
     c.JSON(http.StatusOK, msg)
