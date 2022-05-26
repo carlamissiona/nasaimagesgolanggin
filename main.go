@@ -14,6 +14,13 @@ import (
 
 var Router * gin.Engine
 
+
+type NsImages struct {
+    Name        string
+    Link       string
+    Description string
+}
+
 func main() {
  	
 	r := gin.Default()
@@ -25,18 +32,24 @@ func main() {
 	
 
 	r.LoadHTMLGlob("templates/*.html")
-	r.GET("/updatesemail", func(c *gin.Context) {
-		sendemail("codetuna@protonmail.com")
-		c.JSON(200, gin.H{
-			"message": "Hello world!",
-		})
-	})
+	// r.GET("/updatesemail", func(c *gin.Context) {
+	// 	sendemail("codetuna@protonmail.com")
+	// 	c.JSON(200, gin.H{
+	// 		"message": "Hello world!",
+	// 	})
+	// })
 	
 	r.GET("/app", func(c *gin.Context) {
+
+	 
+			// var items []int = 
+
+	 
 	 
 		c.HTML(http.StatusOK, "index.html", gin.H{
 			"title": "Main website",
 			"payload": "hi",
+			"Imgs" : items,
 		})
 	})
 		
@@ -49,7 +62,9 @@ func main() {
 		defer resp.Body.Close()
 
 
+		fmt.Println("resp==============" )
 		fmt.Println("resp" , resp)
+		fmt.Println("resp==============" )
 		fmt.Println(resp)
 
 		daily := resp 
