@@ -67,12 +67,21 @@ func main() {
 		fmt.Println("resp==============" )
 		fmt.Println(resp)
 
-		daily := resp 
+		    var msg struct {
+            Name    string `json:"user"`
+            Message string
+            Number  int
+        }
+        msg.Name = "Lena"
+        msg.Message = "hey"
+        msg.Number = 123
 
-		c.JSON(
-		http.StatusOK,
-		daily,
-	)
+		daily := msg 
+
+	 
+    c.JSON(http.StatusOK, msg)
+
+	 
 		 
 	})			
 	r.GET("/search", func(c *gin.Context) {
